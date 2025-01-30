@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
 movies = [
     {
         'id': 1, 'name': 'Inception', 'price': 12,
@@ -19,12 +18,12 @@ movies = [
         'description': 'A love story set against the backdrop of the sinking Titanic.',
     },
 ]
+
 def index(request):
     template_data = {}
     template_data['title'] = 'Movies'
     template_data['movies'] = movies
-    return render(request, 'movies/index.html',
-                  {'template_data': template_data})
+    return render(request, 'movies/index.html',{'template_data': template_data})
 
 def show(request, id):
     movie = movies[id - 1]

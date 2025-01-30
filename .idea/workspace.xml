@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9ee039e-3eea-45f9-a1f4-fe9b40e248d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/movies/templates/movies/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movies/templates/movies/show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movies/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moviesstore/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/moviesstore/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moviesstore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moviesstore/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="a9ee039e-3eea-45f9-a1f4-fe9b40e248d3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +93,7 @@
       <workItem from="1738029315557" duration="3450000" />
       <workItem from="1738195632052" duration="764000" />
       <workItem from="1738201902289" duration="257000" />
-      <workItem from="1738202981925" duration="513000" />
+      <workItem from="1738202981925" duration="840000" />
     </task>
     <servers />
   </component>
