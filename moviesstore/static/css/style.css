@@ -20,6 +20,8 @@
 .ms-footer p {
   color: #7F7F7F;
   font-size: 13px;
+
+
 }
 
 .ms-footer a:hover {
@@ -54,12 +56,14 @@
 html, body {
   height: 100%;
   margin: 0;
+  color:white;
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+
 }
 
 section .ms-footer-bottom {
