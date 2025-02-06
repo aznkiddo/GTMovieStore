@@ -1,3 +1,9 @@
+
+.bg-index{
+  background: url("moviesstore/static/img/background.jpg") no-repeat fixed;
+  background-size: 100% auto;
+}
+
 .navbar a.nav-link {
   color: #FFFEF6 !important;
 }
@@ -71,7 +77,3 @@ section .ms-footer-bottom {
   }
 }
 
-.bg-index{
-  background: url("moviesstore/static/img/background.jpg") no-repeat fixed;
-  background-size: 100% auto;
-}

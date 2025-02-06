@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-
-    movies = [
+ '''
+ movies = [
         {
             'id': 1, 'name': 'Inception', 'price': 12,
             'description': 'A mind-bending heist thriller.'
@@ -23,6 +23,7 @@ def index(request):
             'description': 'A love story set against the backdrop of the sinking Titanic.',
         },
     ]
+ '''
 
 def index(request):
     search_term = request.GET.get('search')
@@ -37,10 +38,10 @@ def index(request):
     return render(request, 'movies/index.html',{'template_data': template_data})
 
 def show(request, id):
-    movie = movies[id - 1]
+    movie = Movie.objects.get(id=id)
     reviews = Review.objects.filter(movie=movie)
     template_data = {}
-    template_data['title'] = movie['name']
+    template_data['title'] = movie.name
     template_data['movie'] = movie
     template_data['reviews'] = reviews
     return render(request, 'movies/show.html',
