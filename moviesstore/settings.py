@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-mlz=21yo!43y!c!waq3!m()vam%00^t4=pi%^mwy4!ia!9#c_w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -138,3 +139,12 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Password reset
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'CS2340GASK@gmail.com'
+EMAIL_HOST_PASSWORD = 'ddcb gamd gabd dnzr'
+DEFAULT_FROM_EMAIL = 'YourAppName <your-email@gmail.com>'
