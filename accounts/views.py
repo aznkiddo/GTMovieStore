@@ -42,6 +42,14 @@ def signup(request):
         else:
             return render(request, 'accounts/signup.html')
 
+@login_required
+def orders(request):
+    template_data = {}
+    template_data['title'] = 'Orders'
+    template_data['orders'] = request.user.order_set.all()
+    return render(request, 'accounts/orders.html',
+        {'template_data': template_data})
+
 def reset_password(request):
     if request.method == 'GET':
         return render(request, 'accounts/password_reset.html')
@@ -60,10 +68,3 @@ def reset_password(request):
 #     success_url = reverse_lazy('password_reset_done')
 #     template_name = 'registration/password_reset_form.html'
 
-@login_required
-def orders(request):
-    template_data = {}
-    template_data['title'] = 'Orders'
-    template_data['orders'] = request.user.order_set.all()
-    return render(request, 'accounts/orders.html',
-        {'template_data': template_data})
