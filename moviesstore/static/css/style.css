@@ -62,8 +62,11 @@ html, body {
 .content-container {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 100vh;
 
+}
+.content-container > *:not(.ms-footer) {
+  flex-grow: 1; /* Pushes the footer down */
 }
 
 section .ms-footer-bottom {
@@ -79,6 +82,7 @@ section .ms-footer-bottom {
 
   .ms-footer-bottom {
     margin-top: auto;
+
   }
 }
 

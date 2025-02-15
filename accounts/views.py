@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 @login_required
 def logout(request):
     auth_logout(request)
@@ -58,3 +59,11 @@ def reset_password(request):
 #     email_template_name = 'registration/password_reset_email.html'
 #     success_url = reverse_lazy('password_reset_done')
 #     template_name = 'registration/password_reset_form.html'
+
+@login_required
+def orders(request):
+    template_data = {}
+    template_data['title'] = 'Orders'
+    template_data['orders'] = request.user.order_set.all()
+    return render(request, 'accounts/orders.html',
+        {'template_data': template_data})
