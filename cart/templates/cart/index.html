@@ -11,35 +11,46 @@
                 </div>
             </div>
             <div class="row m-1">
-                <table class="table table-bordered table-striped
-        text-center">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for movie in template_data.movies_in_cart %}
+                <form method="POST" action="{% url 'cart.remove_selected_items' %}">
+                    {% csrf_token %}
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
                         <tr>
-                            <td>{{ movie.id }}</td>
-                            <td>{{ movie.name }}</td>
-                            <td>${{ movie.price }}</td>
-                            <td>{{ request.session.cart|get_quantity:movie.id }}
-                            </td>
+                            <th scope="col">Select</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {% for movie in template_data.movies_in_cart %}
+                            <tr>
+                                <td><input type="checkbox" class="remove_checkbox" name="selected_items"
+                                           value="{{ movie.id }}"></td>
+                                <td>{{ movie.id }}</td>
+                                <td>{{ movie.name }}</td>
+                                <td>${{ movie.price }}</td>
+                                <td>{{ request.session.cart|get_quantity:movie.id }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="row">
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn bg-dark text-white mb-2">Remove Selected Items</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="row">
                 <div class="text-end">
                     <a class="btn btn-outline-secondary mb-2"><b>Total
                         to pay:</b> ${{ template_data.cart_total }}</a>
                     {% if template_data.movies_in_cart|length > 0 %}
-                        <a href="{% url 'cart.purchase' %}"  class="btn bg-dark text-white mb-2">Purchase</a>
+                        <a href="{% url 'cart.purchase' %}" class="btn bg-dark text-white mb-2">Purchase</a>
                         <a href="{% url 'cart.clear' %}">
                             <button class="btn btn-danger mb-2">
                                 Remove all movies from Cart

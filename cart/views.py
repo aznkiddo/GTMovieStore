@@ -36,6 +36,16 @@ def add_to_cart(request, id):
     request.session['cart'] = cart
     return redirect('cart.index')
 
+def remove_selected_items(request):
+    if request.method == 'POST':
+        selected_items = request.POST.getlist('selected_items')
+        cart = request.session.get('cart', {})
+        for item_name in selected_items:
+            cart.pop(item_name, None)
+        request.session['cart'] = cart
+        return redirect('cart.index')
+    else:
+        return redirect('cart.index')
 
 def clear(request):
     request.session['cart'] = {}
